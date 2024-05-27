@@ -2,6 +2,7 @@ package com.example.secureAssignment.services;
 
 import com.example.secureAssignment.models.ApplicationUser;
 import com.example.secureAssignment.models.Role;
+import com.example.secureAssignment.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,16 +19,19 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder encoder;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         System.out.println("Insied the user details");
 
-        if(!username.equals("Amir")) throw new UsernameNotFoundException("It's not Amir");
+//        if(!username.equals("Amir")) throw new UsernameNotFoundException("It's not Amir");
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(new Role("USER",1));
+//        return new ApplicationUser(1, "amir", encoder.encode("password"), roles );
 
-        Set<Role> roles = new HashSet<>();
-        roles.add(new Role("USER",1));
-
-        return new ApplicationUser(1, "amir", encoder.encode("password"), roles );
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User is not valid"));
     }
 }
