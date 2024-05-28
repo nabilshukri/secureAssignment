@@ -22,7 +22,7 @@ public class Role implements GrantedAuthority {
         this.authority = authority;
     }
 
-    public Role(String authority, Integer roleId){
+    public Role(Integer roleId, String authority){
         this.authority = authority;
         this.roleId = roleId;
     }
@@ -33,7 +33,7 @@ public class Role implements GrantedAuthority {
     }
 
     public Integer getRoleId() {
-        return roleId;
+        return this.roleId;
     }
 
     public void setRoleId(Integer roleId) {

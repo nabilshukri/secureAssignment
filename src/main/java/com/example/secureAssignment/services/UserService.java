@@ -29,7 +29,7 @@ public class UserService implements UserDetailsService {
 
 //        if(!username.equals("Amir")) throw new UsernameNotFoundException("It's not Amir");
 //        Set<Role> roles = new HashSet<>();
-//        roles.add(new Role("USER",1));
+//        roles.add(new Role(1,"USER"));
 //        return new ApplicationUser(1, "amir", encoder.encode("password"), roles );
 
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User is not valid"));

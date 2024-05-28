@@ -45,7 +45,7 @@ public class ApplicationUser implements UserDetails {
     }
 
     public Integer getUserId() {
-        return userId;
+        return this.userId;
     }
 
     public void setUserId(Integer userId) {

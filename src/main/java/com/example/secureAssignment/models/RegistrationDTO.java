@@ -14,7 +14,7 @@ public class RegistrationDTO {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
@@ -22,7 +22,7 @@ public class RegistrationDTO {
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
